@@ -10,7 +10,7 @@ import {
 
 const LeftSide = () => {
     return (
-        <div className="flex justify-start space-x-6 items-center">
+        <div className="flex relative justify-start space-x-6 items-center">
 
             {/*Active Issues Button*/}
             <div className="flex px-2 py-1 rounded-md items-center space-x-2 hover:bg-zinc-800 cursor-pointer">

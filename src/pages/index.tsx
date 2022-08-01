@@ -42,7 +42,7 @@ const IssueListCategory = ({CategoryTitle}: IssueListCategoryType) => {
             break;
     }
     return (
-        <div className="inline-flex items-center flex-grow flex-shrink w-full min-w-0 pl-2 pr-8 text-sm
+        <div className="inline-flex items-center flex-grow flex-shrink w-full min-w-0 py-1 pl-2 pr-8 text-sm
                         border-b bg-zinc-700 border-zinc-700 h-11">
             <FontAwesomeIcon className="w-5 h-5 pl-6 mr-4" icon={categoryIcon!}/>
             <h3 className="text-base tracking-wide font-semibold">{CategoryTitle}</h3>
@@ -110,7 +110,7 @@ const IssueListItem = ({Priority, issueDesc, issueId, issueCategory}: IssueListI
 
     return (
         <div className="inline-flex group items-center flex-grow flex-shrink w-full min-w-0 pl-2 pr-8 text-sm
-                        border-b border-zinc-800 hover:bg-zinc-800 hover:bg-opacity-50 h-11 ">
+                        border-b border-zinc-800 hover:bg-zinc-800 hover:bg-opacity-50 py-2 h-11 ">
 
             <FontAwesomeIcon className={`w-5 h-5 mr-5 pl-6 ${color!}`}
                              icon={icon!}/>
@@ -186,6 +186,24 @@ const IssueList = () => {
             issueId: "DEV-010",
             issueDesc: "Finish the skeleteon of the UI hardcoded and stuff",
             issueCategory: "DONE"
+        },
+        {
+            Priority: "none",
+            issueId: "TES-001",
+            issueDesc: "Testing OverFlow",
+            issueCategory: "DONE"
+        },
+        {
+            Priority: "none",
+            issueId: "TES-002",
+            issueDesc: "Testing OverFlow",
+            issueCategory: "DONE"
+        },
+        {
+            Priority: "none",
+            issueId: "TES-003",
+            issueDesc: "Testing OverFlow",
+            issueCategory: "DONE"
         }
     ]
 
@@ -195,7 +213,8 @@ const IssueList = () => {
 
 
     return (
-        <div className="flex flex-col overflow-auto">
+        <div className="flex flex-col overflow-auto scrollbar-thin scrollbar-thumb-zinc-400
+        scrollbar-track-zinc-900 ">
 
             {
                 issueCategories.map(category => {
