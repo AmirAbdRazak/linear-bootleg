@@ -9,6 +9,9 @@ import {
     faUser,
     IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image"
+import testAvatar from '../temp/img/avatarRyz.png'
+
 
 type BarItemType = {
     title: string;
@@ -55,8 +58,13 @@ const SideBar = ({projectTitle}: SideBarType) => {
 
                 {/*Profile Picture*/}
                 <div className="flex justify-end items-center p-1 rounded-md hover:bg-zinc-700">
-                    <img className="rounded-full h-7 w-7"
-                         src="https://cdn.discordapp.com/avatars/330922480820682763/757233fb25719b4fc71a3ce917a6b191.png?size=256"/>
+                    <Image
+                        className="rounded-full"
+                        src={testAvatar}
+                        alt="PFP"
+                        width={36}
+                        height={36}
+                    />
                 </div>
             </div>
 

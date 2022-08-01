@@ -38,3 +38,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Not yet implemented i'll deal with these later
+/prisma
+/env
+/pages
+/server
