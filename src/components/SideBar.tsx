@@ -37,7 +37,8 @@ type SideBarType = {
 const SideBar = ({projectTitle}: SideBarType) => {
     return (
         <div className="lg:static inset-0 lg:relative lg:translate-x-0  flex flex-col
-                flex-shrink-0 w-56 text-sm text-white border-r border-zinc-800 lg:shadow-none items-start">
+                flex-shrink-0 w-56 text-sm text-white border-r border-zinc-800 lg:shadow-none items-start
+                hidden lg:block">
 
             {/*Project Name and PFP*/}
             <div className="flex items-center px-4 pt-2 pb-4 justify-between w-full">

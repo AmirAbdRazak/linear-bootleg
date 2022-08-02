@@ -114,10 +114,20 @@ const IssueListItem = ({Priority, issueDesc, issueId, issueCategory}: IssueListI
 
             <FontAwesomeIcon className={`w-5 h-5 mr-5 pl-6 ${color!}`}
                              icon={icon!}/>
-            <p className="mr-5 text-base font-semibold text-zinc-400">{issueId}</p>
-            <FontAwesomeIcon className="w-5 h-5 mr-5 text-zinc-300 group-hover:text-zinc-500"
+            <p className="mr-5 text-base font-semibold text-zinc-400 whitespace-nowrap">{issueId}</p>
+            <FontAwesomeIcon className="hidden w-5 h-5 mr-5 text-zinc-300 group-hover:text-zinc-500 md:block"
                              icon={categoryIcon!}/>
-            <p className="text-base">{issueDesc}</p>
+            <p className="hidden md:block text-base whitespace-nowrap">{issueDesc}</p>
+            <p className="hidden sm:block md:hidden text-base whitespace-nowrap">
+                {
+                    issueDesc.length > 60? issueDesc.slice(0, 60) + "...": issueDesc
+                }
+            </p>
+            <p className="sm:hidden text-base whitespace-nowrap">
+                {
+                    issueDesc.length > 35? issueDesc.slice(0, 35) + "...": issueDesc
+                }
+            </p>
         </div>
     )
 }
@@ -214,35 +224,29 @@ const IssueList = () => {
 
     return (
         <div className="flex flex-col overflow-auto scrollbar-thin scrollbar-thumb-zinc-400
-        scrollbar-track-zinc-900 ">
+        scrollbar-track-zinc-900">
 
-            {
-                issueCategories.map(category => {
-                    return (
-                        <>
-                            <IssueListCategory
-                                CategoryTitle={category}
-                            />
-                            {issueListContent.map(content => {
-                                if (content.issueCategory == category)
-                                    return (
-                                        <IssueListItem
-                                            key={content.issueId}
-                                            issueId={content.issueId}
-                                            issueCategory={content.issueCategory}
-                                            issueDesc={content.issueDesc}
-                                            Priority={content.Priority}
-                                        />
-                                    )
-                            })}
-                        </>
-                    )
+            {issueCategories.map(category => {
+                return (
+                    <>
+                        <IssueListCategory CategoryTitle={category}/>
 
-
-                })
+                        {issueListContent.map(content => {
+                            if (content.issueCategory == category)
+                                return (
+                                    <IssueListItem
+                                        key={content.issueId}
+                                        issueId={content.issueId}
+                                        issueCategory={content.issueCategory}
+                                        issueDesc={content.issueDesc}
+                                        Priority={content.Priority}
+                                    />
+                                )
+                        })}
+                    </>
+                )
+            })
             }
-
-
         </div>
     )
 }
