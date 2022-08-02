@@ -2,6 +2,8 @@
 
 This is an app made by me to practice my Full Stack skills, ranging from Front-End skills with React and Tailwind, to managing Server-Side Rendering and Static Site Generation using NextJS, to managing a database with PostgreSQL and Prisma, as well as managing Authentication using NextAuth with API handling with tRPC. 
 
+Live Demo: https://linear-bootleg.vercel.app
+
 This is a preview of the current UI.
 
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/83165406/182282814-83b8630a-fe22-41c9-87be-a2da280f6ec6.png">
