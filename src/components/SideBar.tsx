@@ -10,7 +10,7 @@ import {
     IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image"
-import testAvatar from '../temp/img/avatarRyz.png'
+import testAvatar from '../temp/img/avatarAmir.jpeg'
 
 
 type BarItemType = {
