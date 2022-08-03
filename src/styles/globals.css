@@ -46,6 +46,24 @@ zinc color codes
         --scrollbar-track: #18181b;
         --scrollbar-thumb: #a1a1a1;
     }
+
+    /*.theme-dragonfruit {*/
+    /*    --content-bg: #f7f5f2;*/
+    /*    --content-main-text: #1e1e24;*/
+    /*    --content-secondary-text: #2d2d36;*/
+    /*    --content-list-border: #dfdfde;*/
+    /*    --content-category-bg: #dfdfde;*/
+    /*    --content-category-text: #8d8daa;*/
+    /*    --header-bg: #8d8daa;*/
+    /*    --header-main-text: #f7f5f2;*/
+    /*    --header-secondary-text: #dfdfde;*/
+    /*    --header-button-text: #F7F5F2;*/
+    /*    --header-button-bg: #f56d91;*/
+    /*    --sidebar-bg: #8d8daa;*/
+    /*    --sidebar-main-text: #f7f5f2;*/
+    /*    --sidebar-secondary-text: #dfdfde;*/
+
+    /*}*/
 }
 
 body {

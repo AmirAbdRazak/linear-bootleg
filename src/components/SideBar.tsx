@@ -21,11 +21,11 @@ type BarItemType = {
 
 const BarItem = ({title, iconName, isChild = false}: BarItemType) => {
     return (
-        <div className={`flex group items-center ${isChild ? "pl-12" : "pl-8"} h-7 rounded-md hover:bg-zinc-800`}>
-            {iconName && <FontAwesomeIcon className="w-3.5 h-3.5 mr-2 text-zinc-300"
+        <div className={`flex group items-center ${isChild ? "pl-12" : "pl-8"} h-7 rounded-md hover:bg-sidebar-hover`}>
+            {iconName && <FontAwesomeIcon className="w-3.5 h-3.5 mr-2 text-sidebar-secondary"
                                           icon={iconName}/>}
-            {isChild && <span className="flex w-2 h-3 mr-2 items-center">-</span>}
-            <span>{title}</span>
+            {isChild && <span className="flex w-2 h-3 mr-2 items-center text-sidebar-secondary">-</span>}
+            <span className="text-sidebar-secondary hover:text-sidebar-main">{title}</span>
         </div>
     )
 }
@@ -37,7 +37,7 @@ type SideBarType = {
 const SideBar = ({projectTitle}: SideBarType) => {
     return (
         <div className="lg:static inset-0 lg:relative lg:translate-x-0  flex flex-col bg-sidebar
-                flex-shrink-0 w-56 text-sm text-white border-r border-zinc-800 lg:shadow-none items-start
+                flex-shrink-0 w-56 text-sm text-white border-r border-content-list lg:shadow-none items-start
                 hidden lg:block">
 
             {/*Project Name and PFP*/}
@@ -45,20 +45,21 @@ const SideBar = ({projectTitle}: SideBarType) => {
 
                 {/*Project Name*/}
                 <div
-                    className="flex space-x-3 cursor-default justify-start items-center hover:bg-zinc-800 rounded-lg p-2">
+                    className="flex space-x-3 cursor-default justify-start items-center hover:bg-sidebar-hover
+                     rounded-lg p-2">
                     {/*Project Abbreviation Badge*/}
                     <div className="inline-flex bg-sky-500 rounded-md items-center">
-                        <h3 className="text-sm p-0.5">DE</h3>
+                        <h3 className="text-sm p-0.5 text-sidebar-main">DE</h3>
                     </div>
 
                     {/*Project Name*/}
                     <div className="inline-flex">
-                        <h3 className="text-base">{projectTitle}</h3>
+                        <h3 className="text-base text-sidebar-main">{projectTitle}</h3>
                     </div>
                 </div>
 
                 {/*Profile Picture*/}
-                <div className="flex justify-end items-center p-1 rounded-md hover:bg-zinc-800">
+                <div className="flex justify-end items-center p-1 rounded-md hover:bg-sidebar-hover">
                     <Image
                         className="rounded-full"
                         src={testAvatar}
@@ -71,37 +72,41 @@ const SideBar = ({projectTitle}: SideBarType) => {
 
             {/*Create New and Search Button*/}
             <div className="flex items-center justify-between pl-6 pr-4 w-full">
-                <div className="flex rounded-md bg-zinc-800 items-center space-x-2 border-2 border-zinc-700
-                     justify-start hover:border-zinc-600 cursor-pointer">
-                    <FontAwesomeIcon className="pl-2 pr-1" icon={faPenToSquare}/>
-                    <h3 className="text-zinc-400 py-1 pr-10 hover:text-white">New Issue</h3>
+                <div className="flex group rounded-md bg-sidebar-button items-center space-x-2 border-2 border-sidebar-button
+                     justify-start hover:border-sidebar-button-hover cursor-pointer">
+                    <FontAwesomeIcon className="pl-2 pr-1 text-sidebar-button group-hover:text-sidebar-button-hover"
+                                     icon={faPenToSquare}/>
+                    <h3 className="text-sidebar-button py-1 pr-10 group-hover:text-sidebar-button-hover">New Issue</h3>
                 </div>
-                <div className="flex rounded-md bg-zinc-800 items-center border-2 border-zinc-700 p-1.5
-                    hover:border-zinc-600 cursor-pointer">
-                    <FontAwesomeIcon className="text-zinc-400 hover:text-white" icon={faMagnifyingGlass}/>
+                <div className="group flex rounded-md bg-sidebar-button items-center border-2 border-sidebar-button p-1.5
+                    hover:border-sidebar-button-hover cursor-pointer">
+                    <FontAwesomeIcon className="text-sidebar-button group-hover:text-sidebar-button-hover"
+                                     icon={faMagnifyingGlass}/>
                 </div>
             </div>
 
             {/*Project Title and Issues*/}
             <div className="flex flex-col w-full mt-6 pl-4 pr-2 cursor-default">
                 {/*Your Teams*/}
-                <div className="flex group hover:bg-zinc-800 items-center
+                <div className="flex group hover:bg-sidebar-hover items-center
                             space-x-2 py-0.5 pl-2 pr-20 rounded-lg">
-                    <h3 className="inline-flex text-zinc-500 text-xs group-hover:text-zinc-400">Your Teams</h3>
-                    <FontAwesomeIcon className="inline-flex text-xs text-zinc-900 group-hover:text-zinc-400"
+                    <h3 className="inline-flex text-sidebar-muted text-xs group-hover:text-sidebar-tertiary">
+                        Your Teams</h3>
+                    <FontAwesomeIcon className="inline-flex text-xs hidden group-hover:block
+                    group-hover:text-sidebar-tertiary"
                                      icon={faChevronDown}/>
                 </div>
                 {/*Project Title*/}
-                <div className="relative group w-full mt-0.5 h-7 flex hover:bg-zinc-800 items-center rounded-md
+                <div className="relative group w-full mt-0.5 h-7 flex hover:bg-sidebar-hover items-center rounded-md
                         py-0.5 px-2 justify-between">
                     <div className="inline-flex space-x-2 items-center pr-16">
                         <FontAwesomeIcon className="inline-flex text-sky-500 text-xs" icon={faUser}/>
-                        <h3 className="flex text-zinc-300 font-semibold"> {projectTitle} </h3>
-                        <FontAwesomeIcon className="inline-flex text-xs text-zinc-300"
+                        <h3 className="flex text-sidebar-secondary font-semibold"> {projectTitle} </h3>
+                        <FontAwesomeIcon className="inline-flex text-xs text-sidebar-secondary"
                                          icon={faChevronDown}/>
                     </div>
                     <div className="inline-flex pl-1">
-                        <FontAwesomeIcon className="text-zinc-900 group-hover:text-zinc-400"
+                        <FontAwesomeIcon className="hidden group-hover:block group-hover:text-sidebar-secondary"
                                          icon={faEllipsis}/>
                     </div>
                 </div>

@@ -69,10 +69,11 @@ const LeftSide = () => {
         <div className="flex relative justify-start space-x-6 items-center">
 
             {/*Active Issues Button*/}
-            <div className="relative flex px-2 py-1 rounded-md items-center space-x-2 hover:bg-zinc-800 cursor-pointer"
+            <div className={`relative flex px-2 py-1 rounded-md items-center space-x-2 bg-header
+            ${!isClicked && "hover:bg-header-button"} cursor-pointer`}
                  onClick={toggleClicked}>
-                <h3 className="text-sm">Active Issues</h3>
-                <FontAwesomeIcon className="text-xs group-hover:text-white text-zinc-400 text-zinc-300"
+                <h3 className="text-sm text-header-main">Active Issues</h3>
+                <FontAwesomeIcon className="text-xs group-hover:text-header-main text-header-secondary"
                                  icon={faChevronDown}/>
 
                 {/*Dropdown Menu*/}
@@ -85,19 +86,19 @@ const LeftSide = () => {
 
 
             {/*Projects Button*/}
-            <div className="flex group border-2 px-2 py-1 border-zinc-800 rounded-lg bg-zinc-800
-                            items-center cursor-pointer hover:bg-zinc-700 hover:border-zinc-700">
+            <div className="flex group border-2 px-2 py-1 border-header-button rounded-lg bg-header-button
+                            items-center cursor-pointer hover:bg-header-button-hover hover:border-header-button-hover">
                 <FontAwesomeIcon className="group-hover:text-white text-zinc-300 text-xs pr-2"
                                  icon={faBarsProgress}/>
-                <p className="group-hover:text-white text-zinc-300 text-xs">Projects</p>
+                <p className="group-hover:text-header-main text-header-secondary text-xs">Projects</p>
             </div>
 
             {/*Filter Button*/}
-            <div className="flex group border-2 border-dashed pl-4 py-1 border-zinc-800 rounded-lg
-                                items-center cursor-pointer hover:border-solid hover:border-zinc-700">
-                <FontAwesomeIcon className="text-zinc-400 text-xs group-hover:text-white"
+            <div className="flex group border-2 border-dashed pl-4 py-1 border-header-button rounded-lg
+                                items-center cursor-pointer hover:border-solid hover:border-header-button-hover">
+                <FontAwesomeIcon className="text-header-secondary text-xs group-hover:text-header-main"
                                  icon={faPlus}/>
-                <p className="pl-2 pr-4 text-xs text-zinc-400 group-hover:text-white">Filter</p>
+                <p className="pl-2 pr-4 text-xs text-header-secondary group-hover:text-header-main">Filter</p>
             </div>
 
             {isClicked && <div className="fixed w-full h-full right-0 top-0 z-10" onClick={toggleClicked}> </div>}
@@ -111,21 +112,22 @@ const RightSide = () => {
         <div className="flex justify-end space-x-4">
 
             {/*Grid/List/Compact View Option*/}
-            <div className="flex items-center border-2 hover:bg-zinc-800 border-zinc-800
+            <div className="flex items-center border-2 hover:bg-header-button border-header-button
                     rounded-lg cursor-pointer">
-                <FontAwesomeIcon className="bg-zinc-800 py-1.5 rounded-sm px-2 text-xs text-zinc-400"
+                <FontAwesomeIcon className="bg-header-button py-1.5 rounded-sm px-2 text-xs text-header-secondary"
                                  icon={faList}/>
-                <FontAwesomeIcon className="rounded-sm px-2 text-xs text-zinc-400 hover:text-white"
+                <FontAwesomeIcon className="rounded-sm px-2 text-xs text-header-secondary hover:text-header-main"
                                  icon={faGripVertical}/>
             </div>
 
             {/*View Option*/}
-            <div className="flex items-center space-x-2 group border-2 px-2 py-1 border-zinc-800
-                        bg-zinc-800 cursor-pointer hover:bg-zinc-700 hover:border-zinc-700 rounded-lg ">
-                <FontAwesomeIcon className="text-xs group-hover:text-white text-zinc-300 text-zinc-300"
+            <div className="flex items-center space-x-2 group border-2 px-2 py-1 border-header-button
+                        bg-header-button cursor-pointer hover:bg-header-button-hover
+                        hover:border-header-button-hover rounded-lg ">
+                <FontAwesomeIcon className="text-xs group-hover:text-header-main text-header-secondary"
                                  icon={faSliders}/>
-                <h3 className="text-xs text-zinc-400 group-hover:text-white">View</h3>
-                <FontAwesomeIcon className="text-xs group-hover:text-white text-zinc-400 text-zinc-300"
+                <h3 className="text-xs text-header-secondary group-hover:text-header-main">View</h3>
+                <FontAwesomeIcon className="text-xs group-hover:text-header-main text-header-secondary"
                                  icon={faChevronDown}/>
             </div>
         </div>
@@ -134,7 +136,7 @@ const RightSide = () => {
 
 const TopHeader = () => {
     return (
-        <div className="flex py-3 space-x-4 justify-between flex-shrink-0 bg-header border-b border-zinc-800 md:h-14
+        <div className="flex py-3 space-x-4 justify-between flex-shrink-0 bg-header border-b border-content-list md:h-14
                      px-6 items-center">
 
             {/*Left Side of Top Header*/}

@@ -44,7 +44,7 @@ const IssueListCategory = ({CategoryTitle}: IssueListCategoryType) => {
     return (
         <div className="inline-flex items-center flex-grow flex-shrink w-full min-w-0 py-1 pl-2 pr-8 text-sm
                         border-b bg-content-category border-content-list h-11">
-            <FontAwesomeIcon className="w-5 h-5 pl-6 mr-4" icon={categoryIcon!}/>
+            <FontAwesomeIcon className="w-5 h-5 pl-6 mr-4 text-content-category" icon={categoryIcon!}/>
             <h3 className="text-base text-content-category tracking-wide font-semibold">{CategoryTitle}</h3>
         </div>
     )
@@ -109,21 +109,25 @@ const IssueListItem = ({Priority, issueDesc, issueId, issueCategory}: IssueListI
     }
 
     return (
-        <div className="inline-flex group items-center flex-grow flex-shrink w-full min-w-0 pl-2 pr-8 text-sm
-                        border-b border-content-list hover:bg-content-hover hover:bg-opacity-50 py-2 h-11 ">
+        <div className="inline-flex items-center flex-grow flex-shrink w-full min-w-0 pl-2 pr-8 text-sm
+                        border-b border-content-list hover:bg-content-hover py-2 h-11 ">
 
             <FontAwesomeIcon className={`w-5 h-5 mr-5 pl-6 ${color!}`}
                              icon={icon!}/>
-            <p className="mr-5 text-base font-semibold text-zinc-400 whitespace-nowrap">{issueId}</p>
-            <FontAwesomeIcon className="hidden w-5 h-5 mr-5 text-zinc-300 group-hover:text-zinc-500 md:block"
+            <div className="w-16 mr-5 items-center">
+                <p className="text-base font-semibold text-content-tertiary whitespace-nowrap">
+                    {issueId}
+                </p>
+            </div>
+            <FontAwesomeIcon className="hidden w-4 h-4 mr-4 text-content-secondary md:block"
                              icon={categoryIcon!}/>
-            <p className="hidden md:block text-base whitespace-nowrap">{issueDesc}</p>
-            <p className="hidden sm:block md:hidden text-base whitespace-nowrap">
+            <p className="hidden md:block text-base text-content-secondary whitespace-nowrap">{issueDesc}</p>
+            <p className="hidden sm:block md:hidden text-base text-content-secondary whitespace-nowrap">
                 {
                     issueDesc.length > 60? issueDesc.slice(0, 60) + "...": issueDesc
                 }
             </p>
-            <p className="sm:hidden text-base whitespace-nowrap">
+            <p className="sm:hidden text-base text-content-secondary whitespace-nowrap">
                 {
                     issueDesc.length > 35? issueDesc.slice(0, 35) + "...": issueDesc
                 }
